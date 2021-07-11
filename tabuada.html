@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tabuada</title>
+        <link rel="stylesheet" href="style-padrao.css">
+        <style>
+            .entrada {
+                width: 10rem;
+            }
+            .saida {
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="quadro">
+            <h1 id="titulo">Tabuada</h1>
+            <p class="texto">Digite um valor</p>
+            <div class="entrada-botao">
+                <input type="text" class="entrada" data-input-entrada>
+                <select name="operador" class="operador">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="button" value="Calcular" class="botao" data-input-botao>
+            </div>
+            <p>Saida</p><div class="saida" data-saida></div>
+        </section>
+        <script>
+            const gerarTabuada = () => {
+                let entrada = document.querySelector('[data-input-entrada]')
+                let operador = document.querySelector('.operador')
+                let saida = document.querySelector('[data-saida]')
+
+                let valor = parseFloat(entrada.value)
+
+                let tabuada = []
+                let linha
+                switch(operador.value) {
+                    case '+':
+                        for(let i = 1; i <= 10; i++){
+                        linha = `<p class="resultado">${i} ${operador.value} ${valor} = ${i + valor}</p>`
+                        tabuada.push(linha);
+                        }
+                        break;
+                    case '-':
+                        for(let i = 1; i <= 10; i++){
+                        linha = `<p class="resultado">${i} ${operador.value} ${valor} = ${i - valor}</p>`
+                        tabuada.push(linha);}
+                        break;
+                    case '*':
+                    for(let i = 1; i <= 10; i++){
+                        linha = `<p class="resultado">${i} ${operador.value} ${valor} = ${i * valor}</p>`
+                        tabuada.push(linha);}
+                        break;
+                    case '/':
+                    for(let i = 1; i <= 10; i++){
+                        linha = `<p class="resultado">${i * valor} ${operador.value} ${valor} = ${i}</p>`
+                        tabuada.push(linha);}
+                        break;
+                }
+
+                saida.innerHTML = tabuada
+            }
+
+            const botao = document.querySelector('[data-input-botao]')
+            botao.addEventListener('click', gerarTabuada)
+        </script>
+    </body>
+</html>

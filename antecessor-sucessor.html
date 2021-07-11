@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style-padrao.css">
+        <title>AS</title>
+        <style>
+            .saida {
+                background: #333;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+            }
+            .saida-ant-suc {
+                background: #fdfdfd;
+                width: 4rem;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="quadro">
+            <h1 id="titulo">Antecessor e Sucessor</h1>
+            <p class="texto">Digite um número</p>
+            <div class="entrada-botao">
+                <input type="text" class="entrada" data-input-entrada>
+                <input type="button" value="Calcular" class="botao" data-input-botao>
+            </div>
+            <p>Saida</p>
+            <div class="saida">
+                <p>Antecessor</p>
+                <div class="saida-ant-suc" data-saida-ant></div>
+                <p>Sucessor</p>
+                <div class="saida-ant-suc" data-saida-suc></div>
+            </div>
+        </section>
+        <script>
+            const antecessorSucessor = () => {
+                let valor = document.querySelector('[data-input-entrada]')
+                let saidaAnt = document.querySelector('[data-saida-ant]')
+                let saidaSuc = document.querySelector('[data-saida-suc]')
+
+                let saida = parseFloat(valor.value)
+                let resultadoAnt = `<p class="resultado">${saida-1}</p>`
+                let resultadoSuc = `<p class="resultado">${saida+1}</p>`
+
+                saidaAnt.innerHTML = resultadoAnt
+                saidaSuc.innerHTML = resultadoSuc
+            }
+
+            const botao = document.querySelector('[data-input-botao]')
+            botao = document.addEventListener('click', antecessorSucessor)
+        </script>
+    </body>
+</html>

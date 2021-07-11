@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calcular a área do raio do círculo</title>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fdfdfd;
+                font-family: sans-serif;
+            }
+            #circulo {
+                height: 500px;
+                width: 500px;
+                border-radius: 50%;
+                background: #333333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            .entrada-botao {
+                display: flex;
+            }
+            .entrada {
+                height: 2rem;
+                width: 15rem;
+            }
+            .botao {
+                background: #407eaf;
+                border-style: none;
+                color: #fdfdfd;
+                transition: 0.5s;
+            }
+            .botao:hover {
+                background: #c4f9ff;
+                color: #333;
+            }
+            .saida {
+                background: #fdfdfd;
+                width: 18.80rem;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .resultado {
+                color: #333;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="circulo">
+            <h1 id="titulo">Calcular a área do círculo</h1>
+            <p class="texto">Digite um número equivalente ao raio</p>
+            <div class="entrada-botao">
+                <input type="text" class="entrada" data-input-entrada>
+                <input type="button" value="Calcular" class="botao" data-input-botao>
+            </div>
+            <p>Saida</p><div class="saida" data-saida></div>
+        </section>
+        <script>
+
+            const areaDoCirculo = (evento) => {
+                evento.preventDefault()
+                let saida = document.querySelector('[data-saida]')
+                let valor = document.querySelector('[data-input-entrada]')
+                let raio = parseFloat(valor.value)
+                let area = Math.PI * Math.pow(raio, 2)
+                console.log(area.toFixed(2))
+                let resultado = `<p class="resultado">O área do círculo é ${area.toFixed(2)}</p>`
+                saida.innerHTML = resultado
+            }
+
+            const botao = document.querySelector('[data-input-botao]')
+            botao.addEventListener('click', areaDoCirculo)
+        </script>
+    </body>
+</html>

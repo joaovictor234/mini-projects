@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conversão</title>
+        <link rel="stylesheet" href="style-padrao.css">
+    </head>
+    <body>
+        <section id="quadro">
+            <h1 id="titulo">Converter Celsius para Farenheit</h1>
+            <p class="texto">Digite uma temperatura</p>
+            <div class="entrada-botao">
+                <input type="text" class="entrada" data-input-entrada>
+                <input type="button" value="Calcular" class="botao" data-input-botao>
+            </div>
+            <p>Saida</p><div class="saida" data-saida></div>
+        </section>
+        <script>
+            const conveterCelsius = (evento) => {
+                let valor = document.querySelector('[data-input-entrada]')
+                let saida = document.querySelector('[data-saida]')
+                evento.preventDefault()
+                let celsius = parseFloat(valor.value)
+                let fahr = (9 * celsius + 160) / 5
+                let resultado = `<p class='resultado'>A temperatura ${celsius} em fahrenheit é igual a ${fahr}</p>`
+                saida.innerHTML = resultado
+            }
+
+            const botao = document.querySelector('[data-input-botao]')
+            botao = document.addEventListener('click', conveterCelsius)
+        </script>
+    </body>
+</html>

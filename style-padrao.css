@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fdfdfd;
+    font-family: sans-serif;
+}
+#quadro {
+    height: auto;
+    width: 500px;
+    border-radius: 10px;
+    background: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+.entrada-botao {
+    display: flex;
+}
+.entrada {
+    height: 2rem;
+    width: 15rem;
+}
+.botao {
+    background: #407eaf;
+    border-style: none;
+    color: #fdfdfd;
+    transition: 0.5s;
+}
+.botao:hover {
+    background: #c4f9ff;
+    color: #333;
+}
+.saida {
+    background: #fdfdfd;
+    width: 18.80rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.resultado {
+    color: #333;
+    text-align: center;
+}
